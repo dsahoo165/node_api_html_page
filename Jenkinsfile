@@ -16,7 +16,7 @@ agent any
 			withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {                
 	                     sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'                    
 	                     // #Commented to avoid un-necessary push
-	                     sh "docker push dsahoo165/node_api_html:${env.BUILD_NUMBER}"
+	                     //sh "docker push dsahoo165/node_api_html:${env.BUILD_NUMBER}"
 	
 	                }
 		
@@ -28,7 +28,7 @@ agent any
                 sh """
                 docker ps   
 		
-                docker compose down
+                
                 
                 export IMAGE=dsahoo165/node_api_html
                 export TAG=${env.BUILD_NUMBER}
